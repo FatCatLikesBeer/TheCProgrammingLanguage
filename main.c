@@ -1,24 +1,27 @@
 #include <stdio.h>
-#include <string.h>
 
-// Is a character array any different from a string?
 int main(void) {
-  // This is where it differs: myString is a string literal, a convience item
-  char *myString = "does this work?";
-  char placholder[50];
+  int c;
 
-  // while (i < length) {
-  //   placholder[i] = myString[i];
-  //   ++i;
-  // }
+  printf("What's your character? ");
+  while ((c = getchar()) != 'x') {
+    if (c == '\n') {
+      continue;
+    }
+    switch (c) {
+    case 'a':
+      printf("Just the beninging\n");
+      break;
+    case 'c':
+      printf("Such a boring letter\n");
+      break;
+    default:
+      printf("Meh, whatever\n");
+      break;
+    }
+  }
 
-  strcpy(placholder, "nothing to see here");
-
-  printf("%s\n", myString);
-  printf("%s\n", "string above, placeholder below.");
-  printf("%p\n", placholder[0]);
-
-  printf("%c\n", 0x6e);
+  printf("You made it out of there!\n");
 
   return 0;
 }
