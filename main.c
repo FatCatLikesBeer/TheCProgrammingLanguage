@@ -1,8 +1,7 @@
+#include <ctype.h>
 #include <stdio.h>
 
-#define said(f) printf("%s\n", f)
-
 int main(void) {
-  said("Does this work");
+  printf("%d\n", isspace(' '));
   return 0;
 }
