@@ -4,6 +4,7 @@
 
 int getLine(char line[], int max);
 int strindex(char source[], char searchfor[]);
+int strrindex(char source[], char match[]);
 
 char pattern[] = "it";
 
@@ -14,7 +15,7 @@ int main() {
   int index;
 
   while (getLine(line, MAXLINE) > 0) {
-    if ((index = strindex(line, pattern)) > 0) {
+    if ((index = strrindex(line, pattern)) > 0) {
 
       int i = 0;
 
@@ -50,4 +51,19 @@ int strindex(char source[], char match[]) {
     }
   }
   return -1;
+}
+
+/* matches first match in source, returns match index or -1 */
+int strrindex(char source[], char match[]) {
+  int i, j, k, acc;
+
+  acc = -1;
+  for (i = 0; source[i] != '\0'; i++) {
+    for (j = i, k = 0; match[k] != '\0' && source[j] == match[k]; j++, k++)
+      ;
+    if (k > 0 && match[k] == '\0') {
+      acc = i;
+    }
+  }
+  return acc;
 }
