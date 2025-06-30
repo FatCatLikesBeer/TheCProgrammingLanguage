@@ -1,0 +1,25 @@
+file:
+  file -i ./filename.o
+
+strings:
+  strings ./filename.o
+
+objdump:
+  objdump -d ./filename.o           // disassembles the executable code of the file
+  objdump -t ./filename.o           // displays the symbol table
+  objdump -T --demangle ./lib.so    // views exported symbols
+
+nm:
+  nm -u ./filename.o
+
+readelf:
+  readelf -h ./filename.o           // Displays the ELF header
+  readelf -s ./filename.o           // Shows the symbol table
+  readelf -l ./filename.o           // Displays the program header
+
+hexdump
+od
+ldd
+ltrace
+strace
+xxd
